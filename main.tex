@@ -1,0 +1,213 @@
+% Dies ist die Hauptdatei Ihrer Dissertation. Mit * gekennzeichnete
+% Elemente sind optional und können durch Entfernen/Hinzufügen des
+% %-Zeichens gewählt/abgewählt werden. 
+
+
+% Dokumentenklasse
+%\RequirePackage[patch]{kvoptions} 
+%
+%\documentclass[inputenc={utf8}]{DissOnlineLatex}
+%\usepackage{pdflscape}
+%\usepackage[sf,sl,outermarks,compact]{titlesec}
+%\makeatletter
+%\def\@makechapterhead#1{%
+%  {\parindent \z@ \raggedright \normalfont
+%    \ifnum \c@secnumdepth >\m@ne
+%        \huge\bfseries \@chapapp\space \thechapter
+%        \par\nobreak
+%        \vskip 20\p@
+%    \fi
+%    \interlinepenalty\@M
+%    \Huge \bfseries #1\par\nobreak
+%    \vskip 40\p@
+%  }}
+%\makeatother
+
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\input{praeambel.tex} % Importiere die Einstellungen aus der Präambel
+% Eigene Trennungsregeln* 
+\include{hyphenations} 
+
+\usepackage{enumitem}
+
+%-zusaetzliche Kommandos*
+%\include{command}
+
+% Dokumentenanfang
+\begin{document}
+
+% Seitennummerierung für Titel, Widmung, Danksagung, Zusammenfassung,
+% Inhaltsverzeichnis werden in römischen Zahlen gesetzt
+\pagenumbering{roman}
+\pagestyle{empty} 
+
+% Titelblatt
+%\include{titlepage}
+%\maketitle
+
+% Titelseite
+%\clearscrheadings\clearscrplain
+\newpage
+
+\begin{center}
+\begin{Large}
+
+\vspace{8cm}
+
+\bf Verwaltungsmodernisierung im Westlichen Balkan im Kontext der EU-Erweiterung\\
+
+\vspace{10mm}
+
+ \bf Eine vergleichende Untersuchung am Beispiel von Albanien, Mazedonien und Montenegro\\
+\end{Large}
+\end{center}
+\vspace{8cm}
+\begin{large}
+\begin{tabular}{p{24cm}}
+Dissertation zur \\
+Erlangung des akademischen Grades einer \\
+Doktorin der Wirtschafts- und Sozialwissenschaften (Dr. rer. pol.) \\
+im Fachbereich Wirtschaftswissenschaften\\
+der Universität Kassel\\
+\end{tabular}
+
+\vspace{3cm}
+
+\begin{tabular}{p{24cm}}
+Vorgelegt von Claudia Vollmer\\
+Kassel, im Oktober 2013\\
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{ll}
+{\bf Erstgutachterin:} &  Prof. Dr. Silke Laskowski\\
+{\bf Zweitgutachter:}&Prof. Dr. Jürgen Reese\\
+\end{tabular}
+\end{large}
+\clearpage
+
+% Widmung*
+%\include{dedication}
+
+% Danksagung*
+%\include{acknowledgement}
+
+% Zusammenfassung/Abstract
+%\include{abstract}
+  
+% Inhalts-, Abbildungs*-, Tabellen*-Verzeichnis
+\setcounter{page}{1}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+{Verzeichnis der Abkürzungen}
+
+\begin{acronym}
+ \acro{KDE}{K Desktop Environment}
+ \acro{SQL}{Structured Query Language}
+ \acro{Bash}{Bourne-again shell}
+ \acro{BdKJ }{		Bund der Kommunisten Jugoslawiens}
+ \acro{BENF}{ 		Beneficaries}
+ \acro{BiH }{		Bosnia and Herzegovina} 
+ \acro{CAF	}{	Common Assessment Framework}
+ \acro{CARDS}{ 	European Financing Programme for assisting the countries of the Western Balkans}
+ \acro{CCLSGR}{ 	Committee for Coordination of Local Self-Government Reform}
+ \acro{CEE 	}{	Central and Eastern European}
+ \acro{CEEC 	}{	Central and Eastern European Countries }
+ \acro{CoE 	}{	Council of Europe}
+ \acro{COMECON}{	Council for Mutual Economic Assistance}
+ \acro{CS }{		Civil Service }
+ \acro{CSA}{ 		Civil Service Agency (Mazedonien)}
+ \acro{DEZA}{	Direktion für Entwicklung und Zusammenarbeit}
+ \acro{DG 	}{	Directorate-General}
+ \acro{DG ADMIN}{	Directorate-General for Administration}
+ \acro{DG ELARG}{	Directorate-General for Enlargement}
+ \acro{DG HR	}{Directorate-General for Human Resources}
+ \acro{DoPA}{		Department of Public Administration (Albania) }
+ \acro{EAR	}{	European Agency for Reconstruction}
+ \acro{EAS	}{	European Administrative Space }
+ \acro{EBRD}{		European Bank for Reconstruction and Development}
+ \acro{EC	}{	European Commission}
+ \acro{EGPA}{		European Group of Public Administration }
+ \acro{EIPA}{		European Institute of Public Administration }
+ \acro{EU	}{	European Union}
+ \acro{EuGH}{		Europäischer Gerichtshof}
+ \acro{EUPAN}{	European Public Administration Network }
+ \acro{FYROM}{	Former Yugoslav Republic of Macedonia }
+ \acro{GTZ	}{	Deutsche Gesellschaft für Technische Zusammenarbeit	}
+ \acro{HHStA}{	Österreichisches Haus-, Hof- und Staatsarchiv Wien }
+ \acro{HRMA}{	Human Resource Management Authority (Montenegro)}
+ \acro{IMF	}{	International Monetary Fund}
+ \acro{IPA 	}{	Instrument for Pre-accession Assistance}
+ \acro{ISPA}{		Instrument for Structural Policies for Pre-Accession}
+ \acro{MIFF}{		Multi-Annual Indicative Financial Framework}
+ \acro{MIPD}{		Multi-Annual Indicative Planning Document}
+ \acro{MPA}{		Master of Public Administration }
+ \acro{NGO}{		Non-governmental Organisation }
+ \acro{NRO}{		Nichtregierungsorganisation}
+ \acro{NISPA}{		Network of Institutions and Schools of Public Administration in Central and Eastern Europe}
+ \acro{NPM}{		New Public Management }
+ \acro{NUTS}{	Nomenclature des unités territoriales statistiques }
+ \acro{OECD}{		Organisation for Economic Cooperation and Development}
+ \acro{OSCE}{		Organisation for Security and Cooperation in Europe}
+ \acro{OSZE}{		Organisation für Sicherheit und Zusammenarbeit in Europa}
+ \acro{PA	}{	Public Administration}
+ \acro{PAR	}{	Public Administration Reform}
+ \acro{Phare}{		Poland and Hungary Assistance for the Restructuring of the Economy}
+ \acro{PIFC}{		Public Internal Financial Control}
+ \acro{RESPA}{	Regional School for Public Administration }
+ \acro{RGW}{		Rat für gegenseitige Wirtschaftshilfe}
+ \acro{SAA	}{	Stabilisation and Association Agreement }
+ \acro{SAI	}{	Supreme Audit Institution}
+ \acro{SaM}{		Serbia and Montenegro}
+ \acro{SAP	}{	Stabilisierungs- und Assoziierungsprozess }
+ \acro{SAPARD}{	Special Accession Programme for Agriculture\& Rural Development}
+ \acro{SFRJ	}{	Sozialistische Föderative Republik Jugoslawien}
+ \acro{SFRY	}{	Socialist Federal Republic of Yugoslavia}
+ \acro{SIGMA}{	(OECD) Support for Improvement in Governance and Management}
+ \acro{TA	}{	Technical Assistance}
+ \end{acronym}
+
+
+% Seitennummerierung im Hauptteil
+\pagenumbering{arabic}
+\pagestyle{headings} 
+
+% Kapitel
+%\include{chapter01}
+\include{chapter02}
+% usw.
+ 
+% Anhang*
+
+\appendix
+%\pagestyle{empty}
+%\include{appendixC}
+%\include{appendixD}
+%\include{appendixE}
+%\include{appendixF}
+%\pagestyle{myheadings} 
+%\include{appendixA}
+%\include{appendixB}
+
+
+
+% usw
+
+% Literaturverzeichnis
+\bibliography{bibliography}
+\bibliographystyle{plaindin} 
+
+% Lebenslauf*
+%\include{cv}
+
+% Selbstständigkeitserklärung
+%\include{declaration}
+
+% Dokumentenende
+\end{document}
