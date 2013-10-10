@@ -23,8 +23,13 @@
 %  }}
 %\makeatother
 
-%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 \input{praeambel.tex} % Importiere die Einstellungen aus der Präambel
+\newcolumntype{P}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{-2pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{-2pt}}m{#1}}
+
 % Eigene Trennungsregeln* 
 \include{hyphenations} 
 
@@ -179,21 +184,27 @@ Kassel, im Oktober 2013\\
 \pagestyle{headings} 
 
 % Kapitel
-%\include{chapter01}
+\include{chapter01}
 \include{chapter02}
+\include{chapter03}
+%\include{chapter04}
+%\include{chapter05}
 % usw.
  
 % Anhang*
-
 \appendix
-%\pagestyle{empty}
-%\include{appendixC}
-%\include{appendixD}
-%\include{appendixE}
-%\include{appendixF}
-%\pagestyle{myheadings} 
-%\include{appendixA}
-%\include{appendixB}
+\marginsize{2cm}{2cm}{2cm}{2cm}
+\pagestyle{empty}
+\include{appendixA}
+\pagestyle{myheadings} 
+\include{appendixB}
+\include{appendixC}
+\include{appendixD}
+\pagestyle{empty}
+\include{appendixE}
+\include{appendixF}
+
+
 
 
 
