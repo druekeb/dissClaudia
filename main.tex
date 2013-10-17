@@ -37,7 +37,13 @@
 \usepackage{soul}
 \sethlcolor{lightgray}
 
-%-zusaetzliche Kommandos*
+ \usepackage[babel=true]{csquotes}
+\usepackage[backend=biber,sorting=anyt,bibencoding=utf8,style=alphabetic]{biblatex}
+\addbibresource{bibliography.bib}% Syntax for version >= 1.2
+\DeclareNameAlias{author}{last-first}
+\DeclareNameAlias{sortname}{last-first}
+
+%%-zusaetzliche Kommandos*
 %\include{command}
 
 % Dokumentenanfang
@@ -104,7 +110,7 @@ Kassel, im Oktober 2013\\
 %\include{abstract}
   
 % Inhalts-, Abbildungs*-, Tabellen*-Verzeichnis
-\setcounter{page}{1}
+%\setcounter{page}{1}
 \tableofcontents
 \newpage
 \listoffigures
@@ -112,7 +118,7 @@ Kassel, im Oktober 2013\\
 \listoftables
 \newpage
 
-{Verzeichnis der Abkürzungen}
+Verzeichnis der Abkürzungen
 
 \begin{acronym}
  \acro{KDE}{K Desktop Environment}
@@ -183,28 +189,28 @@ Kassel, im Oktober 2013\\
 
 % Seitennummerierung im Hauptteil
 \pagenumbering{arabic}
-\pagestyle{headings} 
+%\pagestyle{headings} 
 
 % Kapitel
-\include{chapter01}
-\include{chapter02}
-\include{chapter03}
-\include{chapter04}
+%\include{chapter01}
+%\include{chapter02}
+%\include{chapter03}
+%\include{chapter04}
 %\include{chapter05}
 % usw.
  
 % Anhang*
-\appendix
-\marginsize{2cm}{2cm}{2cm}{2cm}
-\pagestyle{empty}
-\include{appendixA}
-\pagestyle{myheadings} 
-\include{appendixB}
-\include{appendixC}
-\include{appendixD}
-\pagestyle{empty}
-\include{appendixE}
-\include{appendixF}
+%\appendix
+%\marginsize{2cm}{2cm}{2cm}{2cm}
+%\pagestyle{empty}
+%\include{appendixA}
+%\pagestyle{myheadings} 
+%\include{appendixB}
+%\include{appendixC}
+%\include{appendixD}
+%\pagestyle{empty}
+%\include{appendixE}
+%\include{appendixF}
 
 
 
@@ -213,14 +219,7 @@ Kassel, im Oktober 2013\\
 % usw
 
 % Literaturverzeichnis
-\bibliography{bibliography}
-\bibliographystyle{plaindin} 
-
-% Lebenslauf*
-%\include{cv}
-
-% Selbstständigkeitserklärung
-%\include{declaration}
-
+\nocite{*}
+\printbibliography
 % Dokumentenende
 \end{document}
