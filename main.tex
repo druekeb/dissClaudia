@@ -38,7 +38,25 @@
 \sethlcolor{lightgray}
 
  \usepackage[babel=true]{csquotes}
-\usepackage[backend=biber,sorting=anyt,bibencoding=utf8,style=alphabetic]{biblatex}
+\usepackage[backend=biber,sorting=anyt,bibencoding=utf8, citestyle=numeric,bibstyle=authoryear ]{biblatex}
+
+\DeclareNameAlias{sortname}{first-last}
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{%
+    \printfield{prefixnumber}%
+    \printfield{labelnumber}}}
+     {\setlength{\labelwidth}{\labelnumberwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}%
+      \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
+
 \addbibresource{bibliography.bib}% Syntax for version >= 1.2
 \DeclareNameAlias{author}{last-first}
 \DeclareNameAlias{sortname}{last-first}
