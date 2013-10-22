@@ -30,6 +30,11 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{-2pt}}m{#1}}
 
+\newcommand*\oldurlbreaks{}
+\let\oldurlbreaks=\UrlBreaks
+\renewcommand{\UrlBreaks}{\oldurlbreaks\do\- \do\t}
+
+
 % Eigene Trennungsregeln* 
 \include{hyphenations} 
 
@@ -38,24 +43,24 @@
 \sethlcolor{lightgray}
 
  \usepackage[babel=true]{csquotes}
-\usepackage[backend=biber,sorting=anyt,bibencoding=utf8, citestyle=numeric,bibstyle=authoryear ]{biblatex}
+\usepackage[bibencoding=utf8, citestyle=alphabetic, bibstyle=alphabetic]{biblatex}
 
-\DeclareNameAlias{sortname}{first-last}
-\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
-\defbibenvironment{bibliography}
-  {\list
-     {\printtext[labelnumberwidth]{%
-    \printfield{prefixnumber}%
-    \printfield{labelnumber}}}
-     {\setlength{\labelwidth}{\labelnumberwidth}%
-      \setlength{\leftmargin}{\labelwidth}%
-      \setlength{\labelsep}{\biblabelsep}%
-      \addtolength{\leftmargin}{\labelsep}%
-      \setlength{\itemsep}{\bibitemsep}%
-      \setlength{\parsep}{\bibparsep}}%
-      \renewcommand*{\makelabel}[1]{\hss##1}}
-  {\endlist}
-  {\item}
+%\DeclareNameAlias{sortname}{first-last}
+%\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+%\defbibenvironment{bibliography}
+%  {\list
+%     {\printtext[labelnumberwidth]{%
+%    \printfield{prefixnumber}%
+%    \printfield{labelnumber}}}
+%     {\setlength{\labelwidth}{\labelnumberwidth}%
+%      \setlength{\leftmargin}{\labelwidth}%
+%      \setlength{\labelsep}{\biblabelsep}%
+%      \addtolength{\leftmargin}{\labelsep}%
+%      \setlength{\itemsep}{\bibitemsep}%
+%      \setlength{\parsep}{\bibparsep}}%
+%      \renewcommand*{\makelabel}[1]{\hss##1}}
+%  {\endlist}
+%  {\item}
 
 \addbibresource{bibliography.bib}% Syntax for version >= 1.2
 \DeclareNameAlias{author}{last-first}
@@ -211,7 +216,7 @@ Verzeichnis der Abkürzungen
 
 % Kapitel
 %\include{chapter01}
-%\include{chapter02}
+\include{chapter02}
 %\include{chapter03}
 %\include{chapter04}
 %\include{chapter05}
@@ -239,5 +244,34 @@ Verzeichnis der Abkürzungen
 % Literaturverzeichnis
 \nocite{*}
 \printbibliography
+
+{\textbf Archivquellen:}\vspace{0,5cm}
+\begin{itemize}[label={},itemsep=0pt]
+\item Haus-, Hof- und Saatsarchiv, Wien (HHSTA)
+\item HHSTA, PA XVII Montenegro, Kt. 29, Berichte Weisungen 1910-1911, Bericht Freiherr von Giesl an österreichisches Außenministerium 24. Oktober 1911.
+\item HHSTA PA XVII Montenegro, Kt. 30 Berichte, Weisungen 1914, Übersetzung Regierungsprogramm, Beilage zu Bericht vom 6. Februar 1914).
+\item HHSTA, PA I, Kt. 998, 49f, Bericht des k.u.k. Gesandten an Außenministerium Mitte Dezember 1916.
+\item HHSTA, PA I, Kt. 998, 49g, k.u.k. Militärgouverneur von Weber an das k.u.k. Armeekommando, Cetinje, 6. Juni 1916.
+\item HHST, PA I, Karton 1001, Geheime Note des k.u.k. Chefs des Generalstabes, 28.Mai 1916, OP.No.25.492.
+\item HHSTA, PA I, Nr. 1001, Geheime Note des k.u.k. Chefs des Generalstabes, 28.Mai 1916, OP.No.25.492, Beilage 1.
+\item HHSTA, PA I, Karton 1001, Lagebericht Feldpostamt 140, 9.September 1916, Trollmann, k.u.k. XIX Korpskommando, E.V. Nr. 962/IX.
+\item HHSTA, PA I, Karton 1006, Z. 56/P.Kral, Shkodra, 5. April 1917. 
+\item HHSTA, PA I, Karton 1006, Z. 184
+\item HST, PA I, Karton 1006, Z. 184/P.Kral, Shkodra, 16. November 1916.
+\item HHSTA, PA I, Karton 1006, Nr. 163/P.Kral, Shkodra, 30. Juni 1918.
+Internetquellen
+\item\url{http://www.europarl.europa.eu/brussels/website/media/modul_01/Zusatzthemen/Pdf/Acquis.pdf}, (Aufgerufen: 10.9.2012).
+\item\url{http://www.consilium.europa.eu/ueDocs/cms_Data/docs/pressData/de/ec/72924.pdf}, 13, (Aufgerufen: 21.9.2012).
+\item\url{http://www.stabilitypact.org/about/default.asp}, (Aufgerufen: 1.9.2012).
+\item\url{http://europa.eu/legislation_summaries/enlargement/western_balkans/r18003_de.htm}, (Aufgerufen: 19.10.2012).
+\item\url{http://europa.eu/legislation_summaries/enlargement/2004_and_2007_enlargement/e50004_en.htm}, (Aufgerufen: 19.8.2012).
+\item\url{http://ec.europa.eu/enlargement/archives/ear/publications/main/documents/
+EAR-Article-Montenegro_Sept2007.pdf}, (Aufgerufen: 19.8.2012).
+\item\url{http://www.svez.gov.si/nc/en/splosno/cns/news/article/2028/1265/ Enlargement Package2006}, (Aufgerufen: 15.7.2010).
+\item\url{http://assembly.coe.int/ASP/Doc/XrefViewPDF.asp?FileID=18947&Language=EN}, (Aufgerufen: 5.10.2012).
+\item\url{http://ec.europa.eu/enlargement/archives/ear/montenegro/montenegro.htm}, (Aufgerufen: 5.10.2012).
+\item\url{http://ec.europa.eu/enlargement/archives/ear/montenegro/montenegro.htm}, (Aufgerufen: 5.10.2012).
+\item\url{http://www.pad.gov.al/en/dap.html}, (Aufgerufen: 24.10.2012).
+\end{itemize}
 % Dokumentenende
 \end{document}
