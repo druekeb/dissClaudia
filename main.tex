@@ -34,9 +34,15 @@
 \let\oldurlbreaks=\UrlBreaks
 \renewcommand{\UrlBreaks}{\oldurlbreaks\do\- \do\t}
 
+\selectlanguage{ngerman}
 
 % Eigene Trennungsregeln* 
-\include{hyphenations} 
+%\include{hyphenations} 
+\hyphenation{Demo-kra-ti-sie-rung}
+\hyphenation{Er-wei-te-rung}
+\hyphenation{Schwie-rig-kei-ten}
+\hyphenation{Unter-su-chungs-län-dern}
+\hyphenation{Bei-tritts-kan-di-daten}
 
 \usepackage{enumitem}
 \usepackage{soul}
@@ -212,14 +218,14 @@ Verzeichnis der Abkürzungen
 
 % Seitennummerierung im Hauptteil
 \pagenumbering{arabic}
-%\pagestyle{headings} 
+\pagestyle{headings} 
 
 % Kapitel
-%\include{chapter01}
-%\include{chapter02}
+\include{chapter01}
+\include{chapter02}
 \include{chapter03}
-%\include{chapter04}
-%\include{chapter05}
+\include{chapter04}
+\include{chapter05}
 % usw.
  
 % Anhang*
