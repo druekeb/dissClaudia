@@ -1,29 +1,3 @@
-% Dies ist die Hauptdatei Ihrer Dissertation. Mit * gekennzeichnete
-% Elemente sind optional und können durch Entfernen/Hinzufügen des
-% %-Zeichens gewählt/abgewählt werden. 
-
-
-% Dokumentenklasse
-%\RequirePackage[patch]{kvoptions} 
-%
-%\documentclass[inputenc={utf8}]{DissOnlineLatex}
-%\usepackage{pdflscape}
-%\usepackage[sf,sl,outermarks,compact]{titlesec}
-%\makeatletter
-%\def\@makechapterhead#1{%
-%  {\parindent \z@ \raggedright \normalfont
-%    \ifnum \c@secnumdepth >\m@ne
-%        \huge\bfseries \@chapapp\space \thechapter
-%        \par\nobreak
-%        \vskip 20\p@
-%    \fi
-%    \interlinepenalty\@M
-%    \Huge \bfseries #1\par\nobreak
-%    \vskip 40\p@
-%  }}
-%\makeatother
-
-
 \input{praeambel.tex} % Importiere die Einstellungen aus der Präambel
 \newcolumntype{P}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{-2pt}}m{#1}}
@@ -34,10 +8,7 @@
 \let\oldurlbreaks=\UrlBreaks
 \renewcommand{\UrlBreaks}{\oldurlbreaks\do\- \do\t}
 
-\selectlanguage{ngerman}
-
 % Eigene Trennungsregeln* 
-%\include{hyphenations} 
 \hyphenation{Demo-kra-ti-sie-rung}
 \hyphenation{Er-wei-te-rung}
 \hyphenation{Schwie-rig-kei-ten}
@@ -48,32 +19,11 @@
 \usepackage{soul}
 \sethlcolor{lightgray}
 
- \usepackage[babel=true]{csquotes}
+ \usepackage[babel,german=guillemets]{csquotes}
 \usepackage[bibencoding=utf8, citestyle=alphabetic, bibstyle=alphabetic]{biblatex}
-
-%\DeclareNameAlias{sortname}{first-last}
-%\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
-%\defbibenvironment{bibliography}
-%  {\list
-%     {\printtext[labelnumberwidth]{%
-%    \printfield{prefixnumber}%
-%    \printfield{labelnumber}}}
-%     {\setlength{\labelwidth}{\labelnumberwidth}%
-%      \setlength{\leftmargin}{\labelwidth}%
-%      \setlength{\labelsep}{\biblabelsep}%
-%      \addtolength{\leftmargin}{\labelsep}%
-%      \setlength{\itemsep}{\bibitemsep}%
-%      \setlength{\parsep}{\bibparsep}}%
-%      \renewcommand*{\makelabel}[1]{\hss##1}}
-%  {\endlist}
-%  {\item}
-
 \addbibresource{bibliography.bib}% Syntax for version >= 1.2
 \DeclareNameAlias{author}{last-first}
 \DeclareNameAlias{sortname}{last-first}
-
-%%-zusaetzliche Kommandos*
-%\include{command}
 
 % Dokumentenanfang
 \begin{document}
@@ -88,13 +38,12 @@
 %\maketitle
 
 % Titelseite
-%\clearscrheadings\clearscrplain
+\clearscrheadings\clearscrplain
 \newpage
 
 \begin{center}
 \begin{Large}
 
-\vspace{8cm}
 
 \bf Verwaltungsmodernisierung im Westlichen Balkan im Kontext der EU-Erweiterung\\
 
@@ -147,7 +96,7 @@ Kassel, im Oktober 2013\\
 \listoftables
 \newpage
 
-Verzeichnis der Abkürzungen
+{\Large \textbf{Verzeichnis der Abkürzungen}}
 
 \begin{acronym}
  \acro{KDE}{K Desktop Environment}
@@ -216,10 +165,10 @@ Verzeichnis der Abkürzungen
  \end{acronym}
 
 
-% Seitennummerierung im Hauptteil
+% Seitennummerierung im Hauptteil#
 \pagenumbering{arabic}
 \pagestyle{headings} 
-
+\onehalfspacing
 % Kapitel
 \include{chapter01}
 \include{chapter02}
@@ -229,17 +178,17 @@ Verzeichnis der Abkürzungen
 % usw.
  
 % Anhang*
-%\appendix
+\pagestyle{empty}
 %\marginsize{2cm}{2cm}{2cm}{2cm}
-%\pagestyle{empty}
-%\include{appendixA}
-%\pagestyle{myheadings} 
-%\include{appendixB}
-%\include{appendixC}
-%\include{appendixD}
-%\pagestyle{empty}
-%\include{appendixE}
-%\include{appendixF}
+\newgeometry{a4paper,left=20mm,right=20mm, top=25mm, bottom=25mm}
+%\appendix
+\include{appendixA}
+\pagestyle{myheadings} 
+\include{appendixB}
+\include{appendixC}
+\include{appendixD}
+\include{appendixE}
+\include{appendixF}
 
 
 
@@ -250,9 +199,9 @@ Verzeichnis der Abkürzungen
 % Literaturverzeichnis
 \nocite{*}
 \printbibliography
-
-{\textbf Archivquellen:}\vspace{0,5cm}
-\begin{itemize}[label={},itemsep=0pt]
+\vspace{0,3cm}
+\textbf{Archivquellen:}\vspace{0,2cm}
+\begin{itemize}[label={},leftmargin=*,itemsep=0pt]
 \item Haus-, Hof- und Saatsarchiv, Wien (HHSTA)
 \item HHSTA, PA XVII Montenegro, Kt. 29, Berichte Weisungen 1910-1911, Bericht Freiherr von Giesl an österreichisches Außenministerium 24. Oktober 1911.
 \item HHSTA PA XVII Montenegro, Kt. 30 Berichte, Weisungen 1914, Übersetzung Regierungsprogramm, Beilage zu Bericht vom 6. Februar 1914).

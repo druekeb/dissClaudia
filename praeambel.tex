@@ -1,4 +1,4 @@
-\documentclass[parskip=full]{scrreprt}
+\documentclass[pagesize,parskip=full]{scrreprt}
 % PDF-Kompression
 \pdfminorversion=5
 \pdfobjcompresslevel=1
@@ -11,7 +11,6 @@
 \usepackage{url}%für online-Zitate
 \usepackage{anysize} %Seitenränder verändern
 
-
 \usepackage{geometry}
 \geometry{a4paper,left=30mm,right=25mm, top=25mm, bottom=25mm}
 % Schriften
@@ -19,8 +18,10 @@
 %\usepackage{mathpazo,tgpagella} % auch sehr schöne Schriften
 \usepackage{setspace} % Zeilenabstand
 \usepackage{caption} %Zeilenumbruch in Bildunterschriften
-\onehalfspacing % 1,5 Zeilen
+
+\renewcommand*\chapterheadstartvskip{\vspace*{-1cm}}
 % Schriften-Größen
+
 \setkomafont{chapter}{\Large\rmfamily} % Überschrift der Ebene
 \setkomafont{section}{\large\rmfamily}
 \setkomafont{subsection}{\rmfamily}
@@ -32,12 +33,34 @@
 \setkomafont{captionlabel}{\small\bfseries}
 \setkomafont{caption}{\small}
 % Nummerierung der Sections und subsections und subsubsections
-\setcounter{secnumdepth}{2}
+\setcounter{secnumdepth}{3}
+
+\makeatletter
+\renewcommand\section{\@startsection
+   {section}{1}{0mm}%      % name, ebene, einzug
+   {1\baselineskip}%            % vor-abstand
+   {0,1\baselineskip}%            % nach-abstand
+   {\bfseries\rmfamily\large}%           % layout
+   }
+\renewcommand\subsection{\@startsection
+   {subsection}{2}{0mm}%      % name, ebene, einzug
+   {0,3\baselineskip}%            % vor-abstand
+   {0,05\baselineskip}%            % nach-abstand
+   {\bfseries\rmfamily\large}%           % layout
+   }
+   \renewcommand\subsubsection{\@startsection
+   {subsubsection}{3}{0mm}%      % name, ebene, einzug
+   {0,3\baselineskip}%            % vor-abstand
+   {0,05\baselineskip}%            % nach-abstand
+   {\bfseries\rmfamily}%           % layout
+   }
+\makeatother 
+
 % Sprache: Deutsch
-\usepackage{ngerman}
-\usepackage[ngerman, english]{babel} % Silbentrennung
+
+\usepackage[ngerman]{babel} % Silbentrennung
 % PDF
-\usepackage[ngerman]{hyperref}
+\usepackage[ngerman,hidelinks]{hyperref}
 \usepackage[final]{microtype} % mikrotypographische Optimierungen
 \usepackage{pdflscape} % einzelne Seiten drehen können
 % Tabellen
@@ -49,10 +72,13 @@
 
 \usepackage[table]{xcolor}
 %  Bibliographie
-%\usepackage{bibgerm} % Umlaute in BibTeX
+
 % Tabellen
 \usepackage{float}
 \usepackage{wrapfig}
+\addto\captionsngerman{
+  \renewcommand{\figurename}{Abb}
+} 
 % Bilder
 \usepackage{graphicx} % Bilder
 \usepackage{color} % Farben
@@ -63,12 +89,13 @@
 \definecolor{red}{rgb}{1.0,0.5,0.5}
 \graphicspath{{images/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % bevorzuge pdf-Dateien
+\usepackage[lflt]{floatflt}
 \usepackage{subfigure} % mehrere Abbildungen nebeneinander/übereinander
 \newcommand{\subfigureautorefname}{\figurename} % um \autoref auch für subfigures benutzen
 \setcapindent{0em} % kein Einrücken der Caption von Figures und Tabellen
 %
-%\setcapwidth[c]{0.9\textwidth}
-\setlength{\abovecaptionskip}{0.2cm} % Abstand der zwischen Bild- und Bildunterschrift
+\setcapwidth[c]{0.9\textwidth}
+%\setlength{\abovecaptionskip}{0,2cm} % Abstand der zwischen Bild- und Bildunterschrift
 
 %Abkürzungsverzeichnis
 
