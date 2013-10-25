@@ -27,7 +27,6 @@
 \setkomafont{subsection}{\rmfamily}
 \setkomafont{subsubsection}{\rmfamily}
 
-
 \setkomafont{chapterentry}{\large\rmfamily} % Überschrift der Ebene in Inhaltsverzeichnis
 \setkomafont{descriptionlabel}{\bfseries\rmfamily} % für description Umgebungen
 \setkomafont{captionlabel}{\small\bfseries}
@@ -74,7 +73,7 @@
 %  Bibliographie
 
 % Tabellen
-\usepackage{float}
+
 \usepackage{wrapfig}
 \addto\captionsngerman{
   \renewcommand{\figurename}{Abb}
@@ -89,12 +88,13 @@
 \definecolor{red}{rgb}{1.0,0.5,0.5}
 \graphicspath{{images/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % bevorzuge pdf-Dateien
-\usepackage[lflt]{floatflt}
+%\usepackage[lflt]{floatflt}
+\usepackage{float}
 \usepackage{subfigure} % mehrere Abbildungen nebeneinander/übereinander
 \newcommand{\subfigureautorefname}{\figurename} % um \autoref auch für subfigures benutzen
 \setcapindent{0em} % kein Einrücken der Caption von Figures und Tabellen
 %
-\setcapwidth[c]{0.9\textwidth}
+\setcapwidth[]{0.9\textwidth}
 %\setlength{\abovecaptionskip}{0,2cm} % Abstand der zwischen Bild- und Bildunterschrift
 
 %Abkürzungsverzeichnis

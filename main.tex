@@ -14,13 +14,15 @@
 \hyphenation{Schwie-rig-kei-ten}
 \hyphenation{Unter-su-chungs-län-dern}
 \hyphenation{Bei-tritts-kan-di-daten}
+\hyphenation{EU-Erwei-te-rungs-welle}
 
 \usepackage{enumitem}
 \usepackage{soul}
 \sethlcolor{lightgray}
 
+\usepackage{helvet}
  \usepackage[babel,german=guillemets]{csquotes}
-\usepackage[bibencoding=utf8, citestyle=alphabetic, bibstyle=alphabetic]{biblatex}
+\usepackage[backend=biber,bibencoding=utf8, style=authoryear, autocite=inline, labeldate=true, uniquename=full, uniquelist=true]{biblatex}
 \addbibresource{bibliography.bib}% Syntax for version >= 1.2
 \DeclareNameAlias{author}{last-first}
 \DeclareNameAlias{sortname}{last-first}
@@ -33,26 +35,20 @@
 \pagenumbering{roman}
 \pagestyle{empty} 
 
-% Titelblatt
-%\include{titlepage}
-%\maketitle
-
 % Titelseite
-\clearscrheadings\clearscrplain
+%\clearscrheadings\clearscrplain
+\onehalfspacing
 \newpage
-
+\setlength{\voffset}{30mm}
 \begin{center}
-\begin{Large}
 
-
-\bf Verwaltungsmodernisierung im Westlichen Balkan im Kontext der EU-Erweiterung\\
+{\huge \bfseries Verwaltungsmodernisierung im Westlichen\par Balkan im Kontext der EU-Erweiterung}
 
 \vspace{10mm}
 
- \bf Eine vergleichende Untersuchung am Beispiel von Albanien, Mazedonien und Montenegro\\
-\end{Large}
+ {\Large\bfseries  Eine vergleichende Untersuchung am Beispiel von \par Albanien, Mazedonien und Montenegro}\\
 \end{center}
-\vspace{8cm}
+\vspace{5cm}
 \begin{large}
 \begin{tabular}{p{24cm}}
 Dissertation zur \\
@@ -62,7 +58,7 @@ im Fachbereich Wirtschaftswissenschaften\\
 der Universität Kassel\\
 \end{tabular}
 
-\vspace{3cm}
+\vspace{1cm}
 
 \begin{tabular}{p{24cm}}
 Vorgelegt von Claudia Vollmer\\
@@ -77,7 +73,7 @@ Kassel, im Oktober 2013\\
 \end{tabular}
 \end{large}
 \clearpage
-
+\setlength{\voffset}{0mm}
 % Widmung*
 %\include{dedication}
 
@@ -167,8 +163,8 @@ Kassel, im Oktober 2013\\
 
 % Seitennummerierung im Hauptteil#
 \pagenumbering{arabic}
-\pagestyle{headings} 
-\onehalfspacing
+\pagestyle{useheadings} 
+
 % Kapitel
 \include{chapter01}
 \include{chapter02}
@@ -181,8 +177,10 @@ Kassel, im Oktober 2013\\
 \pagestyle{empty}
 %\marginsize{2cm}{2cm}{2cm}{2cm}
 \newgeometry{a4paper,left=20mm,right=20mm, top=25mm, bottom=25mm}
-%\appendix
-\include{appendixA}
+\appendix
+\addtocontents{toc}{%
+    \protect\setcounter{tocdepth}{0}%
+} \include{appendixA}
 \pagestyle{myheadings} 
 \include{appendixB}
 \include{appendixC}
