@@ -32,7 +32,7 @@
 
 % Seitennummerierung für Titel, Widmung, Danksagung, Zusammenfassung,
 % Inhaltsverzeichnis werden in römischen Zahlen gesetzt
-\pagenumbering{roman}
+
 \pagestyle{empty} 
 
 % Titelseite
@@ -62,7 +62,7 @@ der Universität Kassel\\
 
 \begin{tabular}{p{24cm}}
 Vorgelegt von Claudia Vollmer\\
-Kassel, im Oktober 2013\\
+Kassel, im November 2013\\
 \end{tabular}
 
 \vspace{1cm}
@@ -84,7 +84,9 @@ Kassel, im Oktober 2013\\
 %\include{abstract}
   
 % Inhalts-, Abbildungs*-, Tabellen*-Verzeichnis
-%\setcounter{page}{1}
+\pagestyle{useheadings} 
+\pagenumbering{roman}
+
 \tableofcontents
 \newpage
 \listoffigures
@@ -95,9 +97,7 @@ Kassel, im Oktober 2013\\
 {\Large \textbf{Verzeichnis der Abkürzungen}}
 
 \begin{acronym}
- \acro{KDE}{K Desktop Environment}
- \acro{SQL}{Structured Query Language}
- \acro{Bash}{Bourne-again shell}
+\setlength{\itemsep}{-\parsep} %kein Abstand, kompakte Darstellung 
  \acro{BdKJ }{		Bund der Kommunisten Jugoslawiens}
  \acro{BENF}{ 		Beneficaries}
  \acro{BiH }{		Bosnia and Herzegovina} 
@@ -160,46 +160,56 @@ Kassel, im Oktober 2013\\
  \acro{TA	}{	Technical Assistance}
  \end{acronym}
 
-
+\newpage
 % Seitennummerierung im Hauptteil#
-\pagenumbering{arabic}
-\pagestyle{useheadings} 
 
+\pagestyle{useheadings} 
+\pagenumbering{arabic}
+\setcounter{page}{1}
 % Kapitel
 \include{chapter01}
 \include{chapter02}
-\include{chapter03}
+%\include{chapter03}
 \include{chapter04}
-\include{chapter05}
+ \addcontentsline{toc}{chapter}{Anhang}   % perhaps this line is better placed in the included file
+%\include{chapter05}
 % usw.
- 
+
+\clearpage
 % Anhang*
-\pagestyle{empty}
+
 %\marginsize{2cm}{2cm}{2cm}{2cm}
-\newgeometry{a4paper,left=20mm,right=20mm, top=25mm, bottom=25mm}
+%\newgeometry{a4paper,left=30mm,right=30mm, top=25mm, bottom=25mm}
 \appendix
+\pagestyle{empty}
 \addtocontents{toc}{%
     \protect\setcounter{tocdepth}{0}%
-} \include{appendixA}
+} 
+\renewcommand*\chapterheadstartvskip{\vspace*{-3cm}}
+%\include{appendixA}
+\clearpage
 \pagestyle{myheadings} 
 \include{appendixB}
-\include{appendixC}
+%\include{appendixC}
 \include{appendixD}
-\include{appendixE}
-\include{appendixF}
-
-
-
-
-
-% usw
-
+%\include{appendixE}
+%\include{appendixF}
+\addtocontents{toc}{%
+    \protect\setcounter{tocdepth}{1}%
+} 
+\renewcommand\section{\@startsection
+   {section}{1}{0mm}%      % name, ebene, einzug
+   {3\baselineskip}%            % vor-abstand
+   {0,1\baselineskip}%            % nach-abstand
+   {\bfseries\rmfamily\large}%           % layout
+   }
 % Literaturverzeichnis
+\renewcommand*\chapterheadstartvskip{\vspace*{-1cm}}
 \nocite{*}
 \printbibliography
-\vspace{0,3cm}
-\textbf{Archivquellen:}\vspace{0,2cm}
-\begin{itemize}[label={},leftmargin=*,itemsep=0pt]
+\vspace{0,5cm}
+\textbf{{\Large Archivquellen:}}
+\begin{itemize}[label={},leftmargin=*,itemsep=0pt,parsep=10pt]
 \item Haus-, Hof- und Saatsarchiv, Wien (HHSTA)
 \item HHSTA, PA XVII Montenegro, Kt. 29, Berichte Weisungen 1910-1911, Bericht Freiherr von Giesl an österreichisches Außenministerium 24. Oktober 1911.
 \item HHSTA PA XVII Montenegro, Kt. 30 Berichte, Weisungen 1914, Übersetzung Regierungsprogramm, Beilage zu Bericht vom 6. Februar 1914).
@@ -210,21 +220,24 @@ Kassel, im Oktober 2013\\
 \item HHSTA, PA I, Karton 1001, Lagebericht Feldpostamt 140, 9.September 1916, Trollmann, k.u.k. XIX Korpskommando, E.V. Nr. 962/IX.
 \item HHSTA, PA I, Karton 1006, Z. 56/P.Kral, Shkodra, 5. April 1917. 
 \item HHSTA, PA I, Karton 1006, Z. 184
-\item HST, PA I, Karton 1006, Z. 184/P.Kral, Shkodra, 16. November 1916.
+\item HHSTA, PA I, Karton 1006, Z. 184/P.Kral, Shkodra, 16. November 1916.
 \item HHSTA, PA I, Karton 1006, Nr. 163/P.Kral, Shkodra, 30. Juni 1918.
-Internetquellen
-\item\url{http://www.europarl.europa.eu/brussels/website/media/modul_01/Zusatzthemen/Pdf/Acquis.pdf}, (Aufgerufen: 10.9.2012).
-\item\url{http://www.consilium.europa.eu/ueDocs/cms_Data/docs/pressData/de/ec/72924.pdf}, 13, (Aufgerufen: 21.9.2012).
-\item\url{http://www.stabilitypact.org/about/default.asp}, (Aufgerufen: 1.9.2012).
-\item\url{http://europa.eu/legislation_summaries/enlargement/western_balkans/r18003_de.htm}, (Aufgerufen: 19.10.2012).
-\item\url{http://europa.eu/legislation_summaries/enlargement/2004_and_2007_enlargement/e50004_en.htm}, (Aufgerufen: 19.8.2012).
-\item\url{http://ec.europa.eu/enlargement/archives/ear/publications/main/documents/
-EAR-Article-Montenegro_Sept2007.pdf}, (Aufgerufen: 19.8.2012).
-\item\url{http://www.svez.gov.si/nc/en/splosno/cns/news/article/2028/1265/ Enlargement Package2006}, (Aufgerufen: 15.7.2010).
-\item\url{http://assembly.coe.int/ASP/Doc/XrefViewPDF.asp?FileID=18947&Language=EN}, (Aufgerufen: 5.10.2012).
-\item\url{http://ec.europa.eu/enlargement/archives/ear/montenegro/montenegro.htm}, (Aufgerufen: 5.10.2012).
-\item\url{http://ec.europa.eu/enlargement/archives/ear/montenegro/montenegro.htm}, (Aufgerufen: 5.10.2012).
-\item\url{http://www.pad.gov.al/en/dap.html}, (Aufgerufen: 24.10.2012).
+\end{itemize}
+\vspace{0,5cm}
+\textbf{\Large{Internetquellen:}}
+\begin{itemize}[label={},leftmargin=*,itemsep=0pt,parsep=10pt]
+\item http://www.europarl.europa.eu/brussels/website/media/modul\_01/Zusatzthemen/Pdf/Acquis.pdf, (Aufgerufen: 10.9.2012).
+\item http://www.consilium.europa.eu/ueDocs/cms\_Data/docs/pressData/de/ec/72924.pdf, 13, (Aufgerufen: 21.9.2012).
+\item http://www.stabilitypact.org/about/default.asp, (Aufgerufen: 1.9.2012).
+\item http://europa.eu/legislation\_summaries/enlargement/western\_balkans/r18003\_de.htm, (Aufgerufen: 19.10.2012).
+\item http://europa.eu/legislation\_summaries/enlargement/2004\_and\_2007\_enlargement/e50004\_en.htm, (Aufgerufen: 19.8.2012).
+\item http://ec.europa.eu/enlargement/archives/ear/publications/main/documents/
+EAR-Article-Montenegro\_Sept2007.pdf, (Aufgerufen: 19.8.2012).
+\item http://www.svez.gov.si/nc/en/splosno/cns/news/article/2028/1265/EnlargementPackage2006, (Aufgerufen: 15.7.2010).
+\item http://assembly.coe.int/ASP/Doc/XrefViewPDF.asp?FileID=18947\&Language=EN, (Aufgerufen: 5.10.2012).
+\item http://ec.europa.eu/enlargement/archives/ear/montenegro/montenegro.htm, (Aufgerufen: 5.10.2012).
+\item http://ec.europa.eu/enlargement/archives/ear/montenegro/montenegro.htm, (Aufgerufen: 5.10.2012).
+\item http://www.pad.gov.al/en/dap.html, (Aufgerufen: 24.10.2012).
 \end{itemize}
 % Dokumentenende
 \end{document}
