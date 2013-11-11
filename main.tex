@@ -39,18 +39,18 @@
 %\clearscrheadings\clearscrplain
 \onehalfspacing
 \newpage
-\setlength{\voffset}{30mm}
+\setlength{\voffset}{20mm}
 \begin{center}
 
-{\huge \bfseries Verwaltungsmodernisierung im Westlichen\par Balkan im Kontext der EU-Erweiterung}
+{\LARGE \bfseries Verwaltungsmodernisierung im Westlichen \par Balkan im Kontext der EU-Erweiterung}
 
 \vspace{10mm}
 
  {\Large\bfseries  Eine vergleichende Untersuchung am Beispiel von \par Albanien, Mazedonien und Montenegro}\\
 \end{center}
-\vspace{5cm}
+\vspace{70mm}
 \begin{large}
-\begin{tabular}{p{24cm}}
+\begin{tabular}{p{180mm}}
 Dissertation zur \\
 Erlangung des akademischen Grades einer \\
 Doktorin der Wirtschafts- und Sozialwissenschaften (Dr. rer. pol.) \\
@@ -64,7 +64,7 @@ der Universität Kassel\\
 Vorgelegt von Claudia Vollmer\\
 Kassel, im November 2013\\
 \end{tabular}
-
+\newpage
 \vspace{1cm}
 
 \begin{tabular}{ll}
@@ -171,42 +171,24 @@ Kassel, im November 2013\\
 \include{chapter02}
 \include{chapter03}
 \include{chapter04}
- \addcontentsline{toc}{chapter}{Anhang}   % perhaps this line is better placed in the included file
 \include{chapter05}
 % usw.
 
-\clearpage
-% Anhang*
-
-%\marginsize{2cm}{2cm}{2cm}{2cm}
-%\newgeometry{a4paper,left=30mm,right=30mm, top=25mm, bottom=25mm}
-\appendix
-\pagestyle{empty}
-\addtocontents{toc}{%
-    \protect\setcounter{tocdepth}{0}%
-} 
-\renewcommand*\chapterheadstartvskip{\vspace*{-2cm}}
-\include{appendixA}
-\clearpage
-\pagestyle{myheadings} 
-\include{appendixB}
-\include{appendixC}
-\include{appendixD}
-\include{appendixE}
-\include{appendixF}
 \addtocontents{toc}{%
     \protect\setcounter{tocdepth}{1}%
 } 
-\renewcommand\section{\@startsection
-   {section}{1}{0mm}%      % name, ebene, einzug
-   {3\baselineskip}%            % vor-abstand
-   {0,1\baselineskip}%            % nach-abstand
-   {\bfseries\rmfamily\large}%           % layout
-   }
+%\renewcommand\section{\@startsection
+%   {section}{1}{0mm}%      % name, ebene, einzug
+%   {3\baselineskip}%            % vor-abstand
+%   {0,1\baselineskip}%            % nach-abstand
+%   {\bfseries\rmfamily\large}%           % layout
+%   }
 % Literaturverzeichnis
 \renewcommand*\chapterheadstartvskip{\vspace*{-1cm}}
 \nocite{*}
+
 \printbibliography
+
 \vspace{0,5cm}
 \textbf{{\Large Archivquellen:}}
 \begin{itemize}[label={},leftmargin=*,itemsep=0pt,parsep=10pt]
@@ -225,6 +207,7 @@ Kassel, im November 2013\\
 \end{itemize}
 \vspace{0,5cm}
 \textbf{\Large{Internetquellen:}}
+
 \begin{itemize}[label={},leftmargin=*,itemsep=0pt,parsep=10pt]
 \item http://www.europarl.europa.eu/brussels/website/media/modul\_01/Zusatzthemen/Pdf/Acquis.pdf, (Aufgerufen: 10.9.2012).
 \item http://www.consilium.europa.eu/ueDocs/cms\_Data/docs/pressData/de/ec/72924.pdf, 13, (Aufgerufen: 21.9.2012).
@@ -239,5 +222,41 @@ EAR-Article-Montenegro\_Sept2007.pdf, (Aufgerufen: 19.8.2012).
 \item http://ec.europa.eu/enlargement/archives/ear/montenegro/montenegro.htm, (Aufgerufen: 5.10.2012).
 \item http://www.pad.gov.al/en/dap.html, (Aufgerufen: 24.10.2012).
 \end{itemize}
-% Dokumentenende
+\providecommand*{\appendixmore}{}% Falls Option headings=appendixprefix nicht verwendet wurde.
+\newcommand*{\SavedOriginalchaptertocentry}{}
+\appto\appendixmore{%
+  \let\SavedOriginaladdchaptertocentry\addchaptertocentry
+  \renewcommand*{\addchaptertocentry}[2]{%
+    \ifstr{#1}{}{% Eintrag ohne Nummer
+      \SavedOriginalchaptertocentry{#1}{#2}%
+    }{% Eintrag mit Nummer
+      \SavedOriginaladdchaptertocentry{}{%
+        \string\expandafter\string\MakeUppercase\string\appendixname
+        ~#1:\string\enskip{}#2}%
+    }%
+  }%
+}
+% \addcontentsline{toc}{chapter}{Anhang}   % perhaps this line is better placed in the included file
+\clearpage
+% Anhang*
+
+%\marginsize{2cm}{2cm}{2cm}{2cm}
+%\newgeometry{a4paper,left=30mm,right=30mm, top=25mm, bottom=25mm}
+\appendix
+\pagestyle{empty}
+\addtocontents{toc}{%
+    \protect\setcounter{tocdepth}{0}%
+} 
+\renewcommand*\chapterheadstartvskip{\vspace*{-3cm}}
+\include{appendixA}
+\clearpage
+\pagestyle{myheadings} 
+\include{appendixB}
+\include{appendixC}
+\include{appendixD}
+\include{appendixE}
+\include{appendixF}
+
+
+% % Dokumentenende
 \end{document}

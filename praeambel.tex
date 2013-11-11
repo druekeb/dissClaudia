@@ -1,4 +1,4 @@
-\documentclass[pagesize,parskip=full]{scrreprt}
+\documentclass[pagesize,parskip=full,bibtotoc,12pt]{scrreprt}
 % PDF-Kompression
 \pdfminorversion=5
 \pdfobjcompresslevel=1
@@ -12,11 +12,12 @@
 \usepackage{anysize} %Seitenränder verändern
 
 \usepackage{geometry}
-\geometry{a4paper,left=30mm,right=30mm, top=30mm, bottom=25mm}
+\geometry{a4paper,left=30mm,right=30mm, top=30mm, bottom=30mm}
 % Schriften
 \usepackage{mathpazo} % Palatino für Mathemodus
 %\usepackage{mathpazo,tgpagella} % auch sehr schöne Schriften
 \usepackage{setspace} % Zeilenabstand
+\linespread {1.5}\selectfont %Zeilenabstand
 \usepackage{caption} %Zeilenumbruch in Bildunterschriften
 
 \renewcommand*\chapterheadstartvskip{\vspace*{-1cm}}
