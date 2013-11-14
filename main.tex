@@ -98,7 +98,7 @@ Kassel, im November 2013\\
 \newpage
 \listoftables
 \newpage
-
+\pagestyle{empty}
 {\Large \textbf{Verzeichnis der Abkürzungen}}
 
 \begin{acronym}
@@ -172,9 +172,9 @@ Kassel, im November 2013\\
 \pagenumbering{arabic}
 \setcounter{page}{1}
 % Kapitel
-%\include{chapter01}
-%\include{chapter02}
-%\include{chapter03}
+\include{chapter01}
+\include{chapter02}
+\include{chapter03}
 \include{chapter04}
 \include{chapter05}
 % usw.
@@ -253,17 +253,17 @@ EAR-Article-Montenegro\_Sept2007.pdf, (Aufgerufen: 19.8.2012).
 %\addtocontents{toc}{%
 %    \protect\setcounter{tocdepth}{0}%
 %%} 
-%\renewcommand*\chapterheadstartvskip{\vspace*{-2cm}}
-%\include{appendixA}
-%\clearpage
-%\addtocontents{lot}{\protect\value{tocdepth}=0\relax}% Ab dem Anhang Einträge im
-%                                       % Tabellenverzeichnis nicht mehr anzeigen.
-%\pagestyle{myheadings} 
-%\include{appendixB}
-%\include{appendixC}
-%\include{appendixD}
-%\include{appendixE}
-%\include{appendixF}
+\renewcommand*\chapterheadstartvskip{\vspace*{-2cm}}
+\include{appendixA}
+\clearpage
+\addtocontents{lot}{\protect\value{tocdepth}=0\relax}% Ab dem Anhang Einträge im
+                                       % Tabellenverzeichnis nicht mehr anzeigen.
+\pagestyle{myheadings} 
+\include{appendixB}
+\include{appendixC}
+\include{appendixD}
+\include{appendixE}
+\include{appendixF}
 
 
 % % Dokumentenende
