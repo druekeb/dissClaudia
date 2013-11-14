@@ -17,7 +17,20 @@
 \usepackage{mathpazo} % Palatino für Mathemodus
 %\usepackage{mathpazo,tgpagella} % auch sehr schöne Schriften
 \usepackage{setspace} % Zeilenabstand
-\linespread {1.5}\selectfont %Zeilenabstand
+\onehalfspacing
+%\linespread {1.5}\selectfont %Zeilenabstand
+%\setlength{\skip\footins}{10mm} 
+%\renewcommand{\footnoterule}{%
+%  \kern 3pt
+%  \hrule width \textwidth height .2pt
+%  \kern 2pt
+%}
+%\newlength{\footnoterulewidth} \setlength{\footnoterulewidth}{1\columnwidth} %\newlength{\footnoteruleheight} \setlength{\footnoteruleheight}{.2pt} \renewcommand{\footnoterule}{
+%\kern-3pt \hrule width 5in \kern 6pt
+%\kern -3pt \hrule width \footnoterulewidth  \kern 2.6pt
+%} 
+\renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width 1\columnwidth  height 0.2pt \kern
+ 10pt}
 \usepackage{caption} %Zeilenumbruch in Bildunterschriften
 
 \renewcommand*\chapterheadstartvskip{\vspace*{-1cm}}
@@ -30,27 +43,27 @@
 
 \setkomafont{chapterentry}{\large\rmfamily} % Überschrift der Ebene in Inhaltsverzeichnis
 \setkomafont{descriptionlabel}{\bfseries\rmfamily} % für description Umgebungen
-\setkomafont{captionlabel}{\small\bfseries}
-\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\bfseries}
+%\setkomafont{caption}{\small}
 % Nummerierung der Sections und subsections und subsubsections
 \setcounter{secnumdepth}{3}
 
 \makeatletter
 \renewcommand\section{\@startsection
    {section}{1}{0mm}%      % name, ebene, einzug
-   {1\baselineskip}%            % vor-abstand
+   {2\baselineskip}%            % vor-abstand
    {0,1\baselineskip}%            % nach-abstand
    {\bfseries\rmfamily\large}%           % layout
    }
 \renewcommand\subsection{\@startsection
    {subsection}{2}{0mm}%      % name, ebene, einzug
-   {0,3\baselineskip}%            % vor-abstand
+   {1\baselineskip}%            % vor-abstand
    {0,05\baselineskip}%            % nach-abstand
    {\bfseries\rmfamily\large}%           % layout
    }
    \renewcommand\subsubsection{\@startsection
    {subsubsection}{3}{0mm}%      % name, ebene, einzug
-   {0,3\baselineskip}%            % vor-abstand
+   {1\baselineskip}%            % vor-abstand
    {0,05\baselineskip}%            % nach-abstand
    {\bfseries\rmfamily}%           % layout
    }
@@ -112,35 +125,7 @@
 \definecolor{darkgray}{rgb}{.4,.4,.4}
 \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
 
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{/* */},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
-}
-\lstset{
-   language=JavaScript,
-   backgroundcolor=\color{lightgray},
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   %numbers=right,
-   numberstyle=\scriptsize\ttfamily,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
-}
+
 
 % linksbündige Fußboten
 \deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
