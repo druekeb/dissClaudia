@@ -27,11 +27,29 @@
 \setlength\belowcaptionskip{0.5\baselineskip} 
 \usepackage{helvet}
  \usepackage[babel,german=guillemets]{csquotes}
-\usepackage[backend=biber,bibencoding=utf8, style=authoryear, autocite=inline, labeldate=true, uniquename=full, uniquelist=true]{biblatex}
+\usepackage[backend=biber,
+bibencoding=utf8,
+style=authoryear, 
+autocite=inline,
+labeldate=true,  
+uniquename=false,
+uniquelist=minyear, 
+maxcitenames=1]{biblatex}
 \addbibresource{bibliography.bib}% Syntax for version >= 1.2
 \DeclareNameAlias{author}{last-first}
+\renewcommand{\labelnamepunct}{\addcolon\space} % Doppelpunkt nach Label 
+ \renewcommand*{\multinamedelim}{\addsemicolon\space}% mehrere Namen durch Semikolon plus Leerzeichen 
+  \renewcommand*{\finalnamedelim}{\addsemicolon\space}% mehrere Namen durch Semikolon plus Leerzeichen 
+\DeclareFieldFormat{citetitle}{#1\isdot}
+\DeclareFieldFormat[book]{citetitle}{#1}
+\DeclareFieldFormat[article]{citetitle}{#1}
+\DeclareFieldFormat[incollection]{booktitle}{#1}
+\DeclareFieldFormat[inbook]{booktitle}{#1}
+\DeclareFieldFormat[book]{title}{#1}
+\DeclareFieldFormat[article]{title}{#1}
+\DeclareFieldFormat[manual]{title}{#1}
 \DeclareNameAlias{sortname}{last-first}
-
+\DefineBibliographyStrings{ngerman}{andothers={et \addabbrvspace al\adddot}} 
 % Dokumentenanfang
 \begin{document}
 
@@ -91,7 +109,7 @@ Kassel, im November 2013\\
 % Inhalts-, Abbildungs*-, Tabellen*-Verzeichnis
 \pagestyle{useheadings} 
 \pagenumbering{roman}
-
+\setkomafont{chapterentry}{\normalfont} % Überschrift der Ebene in
 \tableofcontents
 \newpage
 \listoffigures
@@ -242,13 +260,15 @@ EAR-Article-Montenegro\_Sept2007.pdf, (Aufgerufen: 19.8.2012).
   }%
 }
 % \addcontentsline{toc}{chapter}{Anhang}   % perhaps this line is better placed in the included file
+% Inhaltsverzeichnis
+
 \clearpage
 % Anhang*
 
 %\marginsize{2cm}{2cm}{2cm}{2cm}
 %\newgeometry{a4paper,left=20mm,right=20mm, top=20mm, bottom=20mm}
 \appendix
-\pagestyle{empty}
+\pagestyle{headings}
 \addtocontents{toc}{\protect\value{tocdepth}=0\relax}
 %\addtocontents{toc}{%
 %    \protect\setcounter{tocdepth}{0}%
@@ -260,9 +280,12 @@ EAR-Article-Montenegro\_Sept2007.pdf, (Aufgerufen: 19.8.2012).
                                        % Tabellenverzeichnis nicht mehr anzeigen.
 \pagestyle{myheadings} 
 \include{appendixB}
+\pagestyle{headings}
 \include{appendixC}
+\pagestyle{myheadings} 
 \include{appendixD}
 \include{appendixE}
+\pagestyle{empty}
 \include{appendixF}
 
 
