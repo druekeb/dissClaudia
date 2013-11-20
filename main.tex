@@ -19,6 +19,7 @@
 \hyphenation{Unter-su-chungs-län-dern}
 \hyphenation{Bei-tritts-kan-di-daten}
 \hyphenation{EU-Erwei-te-rungs-welle}
+\hyphenation{EU-Mit-glieds-län-der}
 \hyphenation{Ver-wal-tungs-ge-richts-bar-keit}
 
 \usepackage{enumitem}
@@ -34,12 +35,14 @@ autocite=inline,
 labeldate=true,  
 uniquename=false,
 uniquelist=minyear, 
-maxcitenames=1]{biblatex}
+maxcitenames=2]{biblatex}
 \addbibresource{bibliography.bib}% Syntax for version >= 1.2
 \DeclareNameAlias{author}{last-first}
 \renewcommand{\labelnamepunct}{\addcolon\space} % Doppelpunkt nach Label 
- \renewcommand*{\multinamedelim}{\addsemicolon\space}% mehrere Namen durch Semikolon plus Leerzeichen 
-  \renewcommand*{\finalnamedelim}{\addsemicolon\space}% mehrere Namen durch Semikolon plus Leerzeichen 
+\renewcommand*{\multinamedelim}{\addslash}
+\renewcommand*{\finalnamedelim}{\multinamedelim}
+% \renewcommand*{\multinamedelim}{\addsemicolon\space}% mehrere Namen durch Semikolon plus Leerzeichen 
+ % \renewcommand*{\finalnamedelim}{\addsemicolon\space}% mehrere Namen durch Semikolon plus Leerzeichen 
 \DeclareFieldFormat{citetitle}{#1\isdot}
 \DeclareFieldFormat[book]{citetitle}{#1}
 \DeclareFieldFormat[article]{citetitle}{#1}
@@ -50,6 +53,60 @@ maxcitenames=1]{biblatex}
 \DeclareFieldFormat[manual]{title}{#1}
 \DeclareNameAlias{sortname}{last-first}
 \DefineBibliographyStrings{ngerman}{andothers={et \addabbrvspace al\adddot}} 
+
+\makeatletter
+\def\uplabel#1{{{\textsf{#1}}\hfill}}
+\renewenvironment{acronym}[1][1]{%
+   \providecommand*{\acro}{\AC@acro}%
+   \providecommand*{\acroplural}{\AC@acroplural}%
+   \long\def\acroextra##1{##1}%
+   \def\@tempa{1}\def\@tempb{#1}%
+   \ifx\@tempa\@tempb%
+      \global\expandafter\let\csname ac@des@mark\endcsname\AC@used%
+      \ifAC@nolist%
+      \else%
+         \begin{list}{}%
+                {\settowidth{\labelwidth}{\normalfont{\textsf{#1}}\hspace*{6em}}% change according to your needs
+                \setlength{\itemsep}{-\parsep} %kein Abstand, kompakte Darstellung 
+                \setlength{\leftmargin}{\labelwidth}%
+                \addtolength{\leftmargin}{\labelsep}%
+                \renewcommand{\makelabel}{\uplabel}}
+      \fi%
+   \else%
+      \begin{AC@deflist}{#1}%
+   \fi%
+  }%
+  {%
+   \ifx\AC@populated\AC@used\else%
+      \ifAC@nolist%
+      \else%
+          \item[]\relax%
+      \fi%
+   \fi%
+   \expandafter\ifx\csname ac@des@mark\endcsname\AC@used%
+      \ifAC@nolist%
+      \else%
+        \end{list}%
+      \fi%
+   \else%
+      \end{AC@deflist}%
+   \fi}%
+\renewenvironment{AC@deflist}[1]%
+        {\ifAC@nolist%
+         \else%
+            \raggedright\begin{list}{}%
+                {\settowidth{\labelwidth}{\normalfont{\textsf{#1}}\hspace*{3em}}% change according to your needs
+                \setlength{\leftmargin}{\labelwidth}%
+                \addtolength{\leftmargin}{\labelsep}%
+                \renewcommand{\makelabel}{\uplabel}}%
+          \fi}%
+        {\ifAC@nolist%
+         \else%
+            \end{list}%
+         \fi}%
+ \makeatother
+
+
 % Dokumentenanfang
 \begin{document}
 
@@ -116,11 +173,13 @@ Kassel, im November 2013\\
 \newpage
 \listoftables
 \newpage
-\pagestyle{empty}
-{\Large \textbf{Verzeichnis der Abkürzungen}}
+\pagestyle{plain}
+\chapter*{Verzeichnis der Abkürzungen}
 
 \begin{acronym}
-\setlength{\itemsep}{-\parsep} %kein Abstand, kompakte Darstellung 
+%\setlength{\itemsep}{-\parsep} %kein Abstand, kompakte Darstellung 
+%\settowidth{\labelwidth}{\hspace*{6em}}
+%\addtolength{\leftmargin}{\labelsep}%
  \acro{BdKJ }{		Bund der Kommunisten Jugoslawiens}
  \acro{BENF}{ 		Beneficaries}
  \acro{BiH }{		Bosnia and Herzegovina} 
@@ -176,7 +235,7 @@ Kassel, im November 2013\\
  \acro{SAI	}{	Supreme Audit Institution}
  \acro{SaM}{		Serbia and Montenegro}
  \acro{SAP	}{	Stabilisierungs- und Assoziierungsprozess }
- \acro{SAPARD}{	Special Accession Programme for Agriculture\& Rural Development}
+ \acro{SAPARD}{	Special Accession Programme for Agriculture \& Rural Development}
  \acro{SFRJ	}{	Sozialistische Föderative Republik Jugoslawien}
  \acro{SFRY	}{	Socialist Federal Republic of Yugoslavia}
  \acro{SIGMA}{	(OECD) Support for Improvement in Governance and Management}
@@ -285,7 +344,7 @@ EAR-Article-Montenegro\_Sept2007.pdf, (Aufgerufen: 19.8.2012).
 \pagestyle{myheadings} 
 \include{appendixD}
 \include{appendixE}
-\pagestyle{empty}
+\pagestyle{plain}
 \include{appendixF}
 
 
